@@ -1,0 +1,403 @@
+/* Основные стили */
+body {
+    background-color: #1a1a1a;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #333;
+    border-bottom: 2px solid #01a0db;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #01a0db;
+    text-shadow: 0 0 5px #01a0db, 0 0 10px #01a0db;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #01a0db;
+    text-shadow: 0 0 5px #01a0db, 0 0 10px #01a0db;
+}
+
+.contacts {
+    display: flex;
+    gap: 15px;
+}
+
+.contacts a {
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contacts a:hover {
+    color: #01a0db;
+    text-shadow: 0 0 5px #01a0db, 0 0 10px #01a0db;
+}
+
+main {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+.banner {
+    flex: 2;
+    background-color: #222;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.banner h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    color: #01a0db;
+    text-shadow: 0 0 5px #01a0db, 0 0 10px #01a0db;
+}
+
+.banner p {
+    font-size: 16px;
+    color: #ccc;
+}
+
+.video{
+    width: 100%;
+    min-height: 200px;
+    background-image: url(https://i.pinimg.com/originals/6d/12/82/6d128226b004a91418de087443dbbc59.gif);
+    background-repeat: no-repeat;
+    background-size: 110% 95%;
+}
+
+
+
+.smartphone {
+    width: 340px;
+    min-height: 600px;
+    display: block;
+    background-color: #333;
+    border-radius: 25px;
+    padding: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    position: relative;
+    /* width: 300px;
+    height: 600px; */
+}
+
+.smartphone::before {
+    content: "";
+    position: absolute;
+    top: 100px;
+    right: -10px;
+    width: 5px;
+    height: 40px;
+    background-color: #444;
+    border-radius: 5px;
+}
+
+.smartphone::after {
+    content: "";
+    position: absolute;
+    top: 160px;
+    right: -10px;
+    width: 5px;
+    height: 60px;
+    background-color: #444;
+    border-radius: 5px;
+}
+
+.smartphone__screen {
+    background-color: #222;
+    border-radius: 10px;
+    padding: 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.search-form {
+    position: relative;
+    width: 100%;
+}
+
+.search-form input {
+    width: 100%;
+    height: 40px;
+    padding-left: 15px;
+    border: 2px solid #01a0db;
+    border-radius: 20px;
+    font-size: 14px;
+    outline: none;
+    background-color: #333;
+    color: #fff;
+    box-shadow: 0 0 5px #01a0db, 0 0 10px #01a0db;
+    transition: all 0.3s ease;
+}
+
+.search-form input:focus {
+    border-color: #01a0db;
+    box-shadow: 0 0 10px #01a0db, 0 0 20px #01a0db;
+}
+
+.search-form button {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #01a0db;
+    transition: all 0.3s ease;
+}
+
+.search-form button:hover {
+    color: #fff;
+    text-shadow: 0 0 5px #01a0db, 0 0 10px #01a0db;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    row-gap: 20px;
+    column-gap: 20px;
+
+}
+
+.buttons a {
+    padding: 8px;
+    background-color: transparent;
+    border: 2px solid #01a0db;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 10px;
+    text-align: center;
+    color: #01a0db;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 5px #01a0db, 0 0 10px #01a0db;
+    width: 80px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttons a:hover {
+    background-color: rgba(1, 160, 219, 0.1);
+    box-shadow: 0 0 10px #01a0db, 0 0 20px #01a0db;
+}
+
+.buttons a:active {
+    background-color: #01a0db;
+    color: #fff;
+    transform: scale(0.95);
+    box-shadow: 0 0 20px #01a0db, 0 0 40px #01a0db;
+}
+
+.small-blocks {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+.small-blocks div {
+    flex: 1;
+    background-color: #222;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.small-blocks h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #01a0db;
+    text-shadow: 0 0 5px #01a0db, 0 0 10px #01a0db;
+}
+
+.small-blocks p {
+    font-size: 14px;
+    color: #ccc;
+}
+
+footer {
+    background-color: #333;
+    padding: 20px;
+    text-align: center;
+    border-top: 2px solid #01a0db;
+}
+
+footer p {
+    font-size: 14px;
+    color: #fff;
+}
+
+/* Анимация мерцания */
+/* @keyframes blink {
+    0%, 100% {
+        color: #01a0db;
+        text-shadow: 0 0 5px #01a0db, 0 0 10px #01a0db;
+    }
+    50% {
+        color: #fff;
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff;
+    }
+} */
+
+.logo {font-size: 3rem;
+    color: #fff;
+    text-shadow: 0 0 5px #ff005e, 0 0 10px #ff005e, 0 0 20px #ff005e, 0 0 40px #ff005e, 0 0 80px #ff005e;
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 5px #ff005e, 0 0 10px #ff005e, 0 0 20px #ff005e, 0 0 40px #ff005e, 0 0 80px #ff005e;
+    }
+    100% {
+        text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff, 0 0 40px #00d4ff, 0 0 80px #00d4ff, 0 0 160px #00d4ff;
+    }
+} 
+
+
+/* Медиа-запросы */
+@media (max-width: 1200px) {
+    .banner h1 {
+        font-size: 28px;
+    }
+
+    .banner p {
+        font-size: 14px;
+    }
+
+    .smartphone {
+        width: 250px;
+        height: 500px;
+    }
+
+    .buttons a {
+        width: 70px;
+        font-size: 9px;
+    }
+}
+
+@media (max-width: 992px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav {
+        margin-top: 10px;
+    }
+
+    .contacts {
+        margin-top: 10px;
+    }
+
+    main {
+        flex-direction: column;
+    }
+
+    .banner {
+        margin-bottom: 20px;
+    }
+
+    .small-blocks {
+        flex-direction: column;
+    }
+
+    .small-blocks div {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .logo {
+        font-size: 20px;
+    }
+
+    nav a {
+        font-size: 14px;
+    }
+
+    .contacts a {
+        font-size: 14px;
+    }
+
+    .banner h1 {
+        font-size: 24px;
+    }
+
+    .banner p {
+        font-size: 12px;
+    }
+
+    .smartphone {
+        width: 200px;
+        height: 400px;
+    }
+
+    .buttons a {
+        width: 60px;
+        font-size: 8px;
+    }
+}
+
+@media (max-width: 576px) {
+    .logo {
+        font-size: 18px;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+    .contacts a {
+        font-size: 12px;
+    }
+
+    .banner h1 {
+        font-size: 20px;
+    }
+
+    .banner p {
+        font-size: 10px;
+    }
+
+    .smartphone {
+        width: 150px;
+        height: 300px;
+    }
+
+    .buttons a {
+        width: 50px;
+        font-size: 7px;
+    }
+} 
