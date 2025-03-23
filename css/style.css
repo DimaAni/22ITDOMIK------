@@ -1,11 +1,46 @@
 /* Основные стили */
 body {
-    background-color: #1a1a1a;
-    color: #fff;
     font-family: Arial, sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Темная тема (по умолчанию) */
+body[data-theme="dark"] {
+    --bg-color: #1a1a1a;
+    --text-color: #fff;
+    --primary-color: #01a0db;
+    --secondary-color: #ff005e;
+    --header-bg: #333;
+    --border-color: #01a0db;
+    --button-bg: transparent;
+    --button-border: #01a0db;
+    --button-text: #01a0db;
+    --button-hover-bg: rgba(1, 160, 219, 0.1);
+    --footer-bg: #333;
+}
+
+/* Светлая тема */
+body[data-theme="light"] {
+    --bg-color: #f4f4f4;
+    --text-color: #333;
+    --primary-color: #007bff;
+    --secondary-color: #ff4500;
+    --header-bg: #fff;
+    --border-color: #007bff;
+    --button-bg: transparent;
+    --button-border: #007bff;
+    --button-text: #007bff;
+    --button-hover-bg: rgba(0, 123, 255, 0.1);
+    --footer-bg: #fff;
+}
+
+/* Применение переменных */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
 }
 
 /* Шапка */
@@ -14,15 +49,15 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color: #333;
-    border-bottom: 2px solid #01a0db;
+    background-color: var(--header-bg);
+    border-bottom: 2px solid var(--border-color);
 }
 
 .header__logo {
     font-size: 3rem;
     font-weight: bold;
-    color: #fff;
-    text-shadow: 0 0 5px #ff005e, 0 0 10px #ff005e, 0 0 20px #ff005e, 0 0 40px #ff005e, 0 0 80px #ff005e;
+    color: var(--primary-color);
+    text-shadow: 0 0 5px var(--secondary-color), 0 0 10px var(--secondary-color);
     animation: glow 1.5s infinite alternate;
 }
 
@@ -31,33 +66,23 @@ body {
     gap: 20px;
 }
 
-.header__nav-link {
-    color: #fff;
+.header__nav-link,
+.header__contacts-link {
+    color: var(--text-color);
     font-size: 16px;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
-.header__nav-link:hover {
-    color: #01a0db;
-    text-shadow: 0 0 5px #01a0db, 0 0 10px #01a0db;
+.header__nav-link:hover,
+.header__contacts-link:hover {
+    color: var(--primary-color);
+    text-shadow: 0 0 5px var(--primary-color), 0 0 10px var(--primary-color);
 }
 
 .header__contacts {
     display: flex;
     gap: 15px;
-}
-
-.header__contacts-link {
-    color: #fff;
-    font-size: 16px;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.header__contacts-link:hover {
-    color: #01a0db;
-    text-shadow: 0 0 5px #01a0db, 0 0 10px #01a0db;
 }
 
 /* Основной контент */
@@ -69,32 +94,32 @@ body {
 
 .banner {
     flex: 2;
-    background-color: #222;
+    background-color: var(--header-bg);
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .banner__title {
     font-size: 32px;
     margin-bottom: 10px;
-    color: #01a0db;
-    text-shadow: 0 0 5px #01a0db, 0 0 10px #01a0db;
+    color: var(--primary-color);
+    text-shadow: 0 0 5px var(--primary-color), 0 0 10px var(--primary-color);
 }
 
 .banner__text {
     font-size: 16px;
-    color: #ccc;
+    color: var(--text-color);
 }
 
 /* Смартфон */
 .smartphone {
     width: 340px;
     min-height: 600px;
-    background-color: #333;
+    background-color: var(--header-bg);
     border-radius: 25px;
     padding: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     position: relative;
 }
 
@@ -120,7 +145,7 @@ body {
 }
 
 .smartphone__screen {
-    background-color: #222;
+    background-color: var(--bg-color);
     border-radius: 10px;
     padding: 20px;
     height: 100%;
@@ -147,19 +172,19 @@ body {
     width: 100%;
     height: 40px;
     padding-left: 15px;
-    border: 2px solid #01a0db;
+    border: 2px solid var(--primary-color);
     border-radius: 20px;
     font-size: 14px;
     outline: none;
-    background-color: #333;
-    color: #fff;
-    box-shadow: 0 0 5px #01a0db, 0 0 10px #01a0db;
+    background-color: var(--header-bg);
+    color: var(--text-color);
+    box-shadow: 0 0 5px var(--primary-color), 0 0 10px var(--primary-color);
     transition: all 0.3s ease;
 }
 
 .search-form__input:focus {
-    border-color: #01a0db;
-    box-shadow: 0 0 10px #01a0db, 0 0 20px #01a0db;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color);
 }
 
 .search-form__button {
@@ -171,13 +196,13 @@ body {
     border: none;
     cursor: pointer;
     font-size: 16px;
-    color: #01a0db;
+    color: var(--primary-color);
     transition: all 0.3s ease;
 }
 
 .search-form__button:hover {
-    color: #fff;
-    text-shadow: 0 0 5px #01a0db, 0 0 10px #01a0db;
+    color: var(--text-color);
+    text-shadow: 0 0 5px var(--primary-color), 0 0 10px var(--primary-color);
 }
 
 /* Кнопки */
@@ -191,15 +216,15 @@ body {
 
 .smartphone__buttons-link {
     padding: 8px;
-    background-color: transparent;
-    border: 2px solid #01a0db;
+    background-color: var(--button-bg);
+    border: 2px solid var(--button-border);
     border-radius: 10px;
     cursor: pointer;
     font-size: 10px;
     text-align: center;
-    color: #01a0db;
+    color: var(--button-text);
     transition: all 0.3s ease;
-    box-shadow: 0 0 5px #01a0db, 0 0 10px #01a0db;
+    box-shadow: 0 0 5px var(--primary-color), 0 0 10px var(--primary-color);
     width: 80px;
     text-decoration: none;
     display: flex;
@@ -208,15 +233,15 @@ body {
 }
 
 .smartphone__buttons-link:hover {
-    background-color: rgba(1, 160, 219, 0.1);
-    box-shadow: 0 0 10px #01a0db, 0 0 20px #01a0db;
+    background-color: var(--button-hover-bg);
+    box-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color);
 }
 
 .smartphone__buttons-link:active {
-    background-color: #01a0db;
-    color: #fff;
+    background-color: var(--primary-color);
+    color: var(--text-color);
     transform: scale(0.95);
-    box-shadow: 0 0 20px #01a0db, 0 0 40px #01a0db;
+    box-shadow: 0 0 20px var(--primary-color), 0 0 40px var(--primary-color);
 }
 
 /* Малые блоки */
@@ -228,44 +253,44 @@ body {
 
 .small-blocks__item {
     flex: 1;
-    background-color: #222;
+    background-color: var(--header-bg);
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .small-blocks__title {
     font-size: 20px;
     margin-bottom: 10px;
-    color: #01a0db;
-    text-shadow: 0 0 5px #01a0db, 0 0 10px #01a0db;
+    color: var(--primary-color);
+    text-shadow: 0 0 5px var(--primary-color), 0 0 10px var(--primary-color);
 }
 
 .small-blocks__text {
     font-size: 14px;
-    color: #ccc;
+    color: var(--text-color);
 }
 
 /* Футер */
 .footer {
-    background-color: #333;
+    background-color: var(--footer-bg);
     padding: 20px;
     text-align: center;
-    border-top: 2px solid #01a0db;
+    border-top: 2px solid var(--border-color);
 }
 
 .footer__text {
     font-size: 14px;
-    color: #fff;
+    color: var(--text-color);
 }
 
 /* Анимация */
 @keyframes glow {
     0% {
-        text-shadow: 0 0 5px #ff005e, 0 0 10px #ff005e, 0 0 20px #ff005e, 0 0 40px #ff005e, 0 0 80px #ff005e;
+        text-shadow: 0 0 5px var(--secondary-color), 0 0 10px var(--secondary-color), 0 0 20px var(--secondary-color), 0 0 40px var(--secondary-color), 0 0 80px var(--secondary-color);
     }
     100% {
-        text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff, 0 0 40px #00d4ff, 0 0 80px #00d4ff, 0 0 160px #00d4ff;
+        text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color), 0 0 40px var(--primary-color), 0 0 80px var(--primary-color), 0 0 160px var(--primary-color);
     }
 }
 
