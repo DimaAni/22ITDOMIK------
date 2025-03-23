@@ -1,102 +1,93 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css">
-    <title>ИТДОМИК</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/style.css">
+<title>ИТДОМИК</title>
 </head>
 <body>
-    <header>
-        <!-- Логотип -->
-        <div class="logo">ITDOMIK</div>
-        <!-- Навигация -->
-        <nav>
-            <a href="#">Главная</a>
-            <a href="#">О нас</a>
-            <a href="#">Блог</a>
-            <a href="#">Услуги</a>
-            <a href="#">Регистрация</a>
-            <a href="#">Вход</a>
+    <header class="header">
+    <!-- Логотип -->
+    <div class="header__logo">ITDOMIK</div>
+    <!-- Навигация -->
+    <nav class="header__nav">
+        <a class="header__nav-link" href="#">Главная</a>
+        <a class="header__nav-link" href="#">О нас</a>
+        <a class="header__nav-link" href="#">Блог</a>
+        <a class="header__nav-link" href="#">Услуги</a>
+        <a class="header__nav-link" href="#">Регистрация</a>
+        <a class="header__nav-link" href="#">Вход</a>
         </nav>
         <!-- Контакты -->
-        <div class="contacts">
-            <a href="https://t.me/ваш_телеграм" target="_blank">Telegram</a>
-            <a href="https://vk.com/ваш_вк" target="_blank">ВКонтакте</a>
+        <div class="header__contacts">
+        <a class="header__contacts-link" href="https://t.me/ваш_телеграм" target="_blank">Telegram</a>
+        <a class="header__contacts-link" href="https://vk.com/ваш_вк" target="_blank">ВКонтакте</a>
         </div>
     </header>
 
-    <main>
+    <main class="main">
         <!-- Большой баннер -->
         <div class="banner">
-            <h1>Большой баннер</h1>
-
-            <p>
-                Кролики — это не только ценный мех, но и 3–4 килограмма диетического, легкоусвояемого мяса!!!.
-            </p>
-            
+        <h1 class="banner__title">Большой баннер</h1>
+        <p class="banner__text">
+        Кролики — это не только ценный мех, но и 3–4 килограмма диетического, легкоусвояемого мяса!!!.
+        </p>
         </div>
         <!-- Блок aside -->
         <aside class="smartphone">
-            <div class="smartphone__screen">
-        <div class="video">
-            
+        <div class="smartphone__screen">
+        <div class="smartphone__video"></div>
+        <!-- Поисковая строка -->
+        <form class="search-form">
+        <input class="search-form__input" type="text" placeholder="Введите запрос" aria-label="Поиск">
+        <button class="search-form__button" type="submit"></button>
+        </form>
+        <!-- Кнопки разделов -->
+        <div class="smartphone__buttons">
+        <a class="smartphone__buttons-link" href="#settings">Настройки</a>
+        <a class="smartphone__buttons-link" href="#news">Новости</a>
+        <a class="smartphone__buttons-link" href="#calculator">Калькулятор</a>
+        <a class="smartphone__buttons-link" href="#courses">Курсы</a>
+        <a class="smartphone__buttons-link" href="#assistant">Ассистент</a>
+        <a class="smartphone__buttons-link" href="#clock">Часы</a>
+        <a class="smartphone__buttons-link" href="#lessons">Уроки</a>
+        <a class="smartphone__buttons-link" href="#tests">Тесты</a>
+        <a class="smartphone__buttons-link" href="#chat">Чат</a>
+        <a class="smartphone__buttons-link" href="#forum">Форум</a>
+        <a class="smartphone__buttons-link" href="#articles">Статьи</a>
+        <a class="smartphone__buttons-link" href="#portfolio">Портфолио</a>
+        <a class="smartphone__buttons-link" href="#development">Разработка</a>
+        <a class="smartphone__buttons-link" href="#itslang">Ит слэнг</a>
+        <a class="smartphone__buttons-link" href="#guide">Справочник</a>
+        <a class="smartphone__buttons-link" href="#ctrl+c">Ctrls+C</a>
+        <a class="smartphone__buttons-link" href="#development">__________</a>
+        <a class="smartphone__buttons-link" href="#development">__________</a>
         </div>
-      
-                <!-- Поисковая строка -->
-                <form class="search-form">
-                    <input type="text" placeholder="Введите запрос" aria-label="Поиск">
-                    <button type="submit">
-                        
-                    </button>
-                </form>
-
-                <!-- Кнопки разделов -->
-                <div class="buttons">
-                    <a href="#settings">Настройки</a>
-                    <a href="#news">Новости</a>
-                    <a href="#calculator">Калькулятор</a>
-                    <a href="#courses">Курсы</a>
-                    <a href="#assistant">Ассистент</a>
-                    <a href="#clock">Часы</a>
-                    <a href="#lessons">Уроки</a>
-                    <a href="#tests">Тесты</a>
-                    <a href="#chat">Чат</a>
-                    <a href="#forum">Форум</a>
-                    <a href="#articles">Статьи</a>
-                    <a href="#portfolio">Портфолио</a>
-                    <a href="#development">Разработка</a>
-                    <a href="#itslang">Ит слэнг</a>
-                    <a href="#guide">Справочник</a>
-                    <a href="#ctrl+c">Ctrls+C</a>
-                    <a href="#development">__________</a>
-                    <a href="#development">__________</a>
-
-                </div>
-            </div>
+        </div>
         </aside>
     </main>
 
     <!-- Три блока поменьше -->
     <div class="small-blocks">
-        <div>
-            <h3>Блок 1</h3>
-            <p>Описание блока 1.</p>
+        <div class="small-blocks__item">
+        <h3 class="small-blocks__title">Блок 1</h3>
+        <p class="small-blocks__text">Описание блока 1.</p>
         </div>
-        <div>
-            <h3>Блок 2</h3>
-            <p>Описание блока 2.</p>
+        <div class="small-blocks__item">
+        <h3 class="small-blocks__title">Блок 2</h3>
+        <p class="small-blocks__text">Описание блока 2.</p>
         </div>
-        <div>
-            <h3>Блок 3</h3>
-            <p>Описание блока 3.</p>
+        <div class="small-blocks__item">
+        <h3 class="small-blocks__title">Блок 3</h3>
+        <p class="small-blocks__text">Описание блока 3.</p>
         </div>
     </div>
 
     <!-- Футер -->
-    <footer>
-        <p>&copy; 2025 ITDOMIK. Все права защищены.</p>
+    <footer class="footer">
+        <p class="footer__text">&copy; 2025 ITDOMIK. Все права защищены.</p>
     </footer>
 </body>
 </html>
