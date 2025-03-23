@@ -1,6 +1,6 @@
 /* Основные стили */
 body {
-    font-family: Arial, sans-serif;
+    font-family: sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
@@ -9,17 +9,20 @@ body {
 
 /* Темная тема (по умолчанию) */
 body[data-theme="dark"] {
-    --bg-color: #1a1a1a;
+    --bg-color: #08192F;
     --text-color: #fff;
-    --primary-color: #01a0db;
-    --secondary-color: #ff005e;
-    --header-bg: #333;
-    --border-color: #01a0db;
+    --primary-color: #00BFFF;
+    --secondary-color: #00BFFF;
+    --header-bg: #0A2A4B;
+    --border-color: #00BFFF;
     --button-bg: transparent;
-    --button-border: #01a0db;
-    --button-text: #01a0db;
-    --button-hover-bg: rgba(1, 160, 219, 0.1);
-    --footer-bg: #333;
+    --button-border: #00BFFF;
+    --button-text: #00BFFF;
+    --button-hover-bg: rgba(0, 191, 255, 0.1);
+    --footer-bg: #0A2A4B;
+    --container-bg: linear-gradient(to bottom, #08192F, #0A2A4B);
+    --container-border: 1px solid #00BFFF;
+    --container-shadow: 0 0 20px rgba(0, 191, 255, 0.5);
 }
 
 /* Светлая тема */
@@ -35,6 +38,9 @@ body[data-theme="light"] {
     --button-text: #007bff;
     --button-hover-bg: rgba(0, 123, 255, 0.1);
     --footer-bg: #fff;
+    --container-bg: #fff;
+    --container-border: 1px solid #007bff;
+    --container-shadow: 0 0 20px rgba(0, 123, 255, 0.5);
 }
 
 /* Применение переменных */
@@ -57,7 +63,7 @@ body {
     font-size: 3rem;
     font-weight: bold;
     color: var(--primary-color);
-    text-shadow: 0 0 5px var(--secondary-color), 0 0 10px var(--secondary-color);
+    text-shadow: 0 0 5px var(--primary-color), 0 0 10px var(--primary-color);
     animation: glow 1.5s infinite alternate;
 }
 
@@ -92,12 +98,30 @@ body {
     padding: 20px;
 }
 
+/* Баннер */
 .banner {
     flex: 2;
-    background-color: var(--header-bg);
+    background: var(--container-bg);
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: var(--container-border);
+    box-shadow: var(--container-shadow);
+    position: relative;
+    overflow: hidden; /* Чтобы изображение не выходило за границы */
+}
+
+.banner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://fanfishka.ru/uploads/posts/2020-02/1581958302_111.jpg'); /* Ссылка на изображение Матрицы */
+    background-size: cover;
+    background-position: center;
+    opacity: 0.5; /* Полупрозрачность */
+    z-index: 1;
 }
 
 .banner__title {
@@ -105,11 +129,15 @@ body {
     margin-bottom: 10px;
     color: var(--primary-color);
     text-shadow: 0 0 5px var(--primary-color), 0 0 10px var(--primary-color);
+    position: relative;
+    z-index: 2; /* Чтобы текст был поверх изображения */
 }
 
 .banner__text {
     font-size: 16px;
     color: var(--text-color);
+    position: relative;
+    z-index: 2; /* Чтобы текст был поверх изображения */
 }
 
 /* Смартфон */
@@ -253,10 +281,11 @@ body {
 
 .small-blocks__item {
     flex: 1;
-    background-color: var(--header-bg);
+    background: var(--container-bg);
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: var(--container-border);
+    box-shadow: var(--container-shadow);
 }
 
 .small-blocks__title {
@@ -291,121 +320,5 @@ body {
     }
     100% {
         text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color), 0 0 40px var(--primary-color), 0 0 80px var(--primary-color), 0 0 160px var(--primary-color);
-    }
-}
-
-/* Медиа-запросы */
-@media (max-width: 1200px) {
-    .banner__title {
-        font-size: 28px;
-    }
-
-    .banner__text {
-        font-size: 14px;
-    }
-
-    .smartphone {
-        width: 250px;
-        height: 500px;
-    }
-
-    .smartphone__buttons-link {
-        width: 70px;
-        font-size: 9px;
-    }
-}
-
-@media (max-width: 992px) {
-    .header {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .header__nav {
-        margin-top: 10px;
-    }
-
-    .header__contacts {
-        margin-top: 10px;
-    }
-
-    .main {
-        flex-direction: column;
-    }
-
-    .banner {
-        margin-bottom: 20px;
-    }
-
-    .small-blocks {
-        flex-direction: column;
-    }
-
-    .small-blocks__item {
-        margin-bottom: 20px;
-    }
-}
-
-@media (max-width: 768px) {
-    .header__logo {
-        font-size: 20px;
-    }
-
-    .header__nav-link {
-        font-size: 14px;
-    }
-
-    .header__contacts-link {
-        font-size: 14px;
-    }
-
-    .banner__title {
-        font-size: 24px;
-    }
-
-    .banner__text {
-        font-size: 12px;
-    }
-
-    .smartphone {
-        width: 200px;
-        height: 400px;
-    }
-
-    .smartphone__buttons-link {
-        width: 60px;
-        font-size: 8px;
-    }
-}
-
-@media (max-width: 576px) {
-    .header__logo {
-        font-size: 18px;
-    }
-
-    .header__nav-link {
-        font-size: 12px;
-    }
-
-    .header__contacts-link {
-        font-size: 12px;
-    }
-
-    .banner__title {
-        font-size: 20px;
-    }
-
-    .banner__text {
-        font-size: 10px;
-    }
-
-    .smartphone {
-        width: 150px;
-        height: 300px;
-    }
-
-    .smartphone__buttons-link {
-        width: 50px;
-        font-size: 7px;
     }
 }
