@@ -1,10 +1,202 @@
 /* Основные стили */
 body {
-    font-family: sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
     transition: background-color 0.3s ease, color 0.3s ease;
+}
+/* Дополнительные стили для усиления свечения */
+.app-button {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.app-button::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: var(--primary-color);
+    z-index: -1;
+    filter: blur(5px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.app-button:hover::before {
+    opacity: 0.7;
+}
+
+.app-button i {
+    transition: all 0.3s ease;
+    text-shadow: 0 0 5px transparent;
+}
+
+.app-button:hover i {
+    transform: scale(1.2);
+    text-shadow: 0 0 10px var(--primary-color);
+}
+
+.app-button span {
+    transition: all 0.3s ease;
+    text-shadow: 0 0 5px transparent;
+}
+
+.app-button:hover span {
+    text-shadow: 0 0 8px var(--primary-color);
+}
+
+/* Улучшенные стили для кнопок приложения */
+.app-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    padding: 10px;
+}
+
+.app-button {
+    padding: 12px 8px;
+    background-color: var(--button-bg);
+    border: 2px solid var(--button-border);
+    border-radius: 12px;
+    color: var(--button-text);
+    text-decoration: none;
+    font-size: 12px;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(0, 191, 255, 0.3);
+    z-index: 1;
+}
+
+.app-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(0, 191, 255, 0.1),
+        transparent
+    );
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.app-button:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 5px 25px var(--primary-color);
+    border-color: var(--primary-color);
+    background-color: var(--button-hover-bg);
+}
+
+.app-button:hover::before {
+    opacity: 1;
+}
+
+.app-button i {
+    font-size: 24px;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 0 5px var(--primary-color));
+}
+
+.app-button:hover i {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 15px var(--primary-color));
+}
+
+.app-button span {
+    font-weight: bold;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 5px transparent;
+}
+
+.app-button:hover span {
+    text-shadow: 0 0 10px var(--primary-color);
+}
+
+/* Эффект пульсации */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 10px var(--primary-color);
+    }
+    50% {
+        box-shadow: 0 0 25px var(--primary-color);
+    }
+    100% {
+        box-shadow: 0 0 10px var(--primary-color);
+    }
+}
+
+.app-button:hover {
+    animation: pulse 2s infinite;
+}
+
+/* Эффект свечения при наведении */
+.app-button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%, -50%);
+    transform-origin: 50% 50%;
+    pointer-events: none;
+}
+
+.app-button:hover::after {
+    animation: ripple 1s ease-out forwards;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0, 0);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(20, 20);
+        opacity: 0;
+    }
+}
+
+/* Эффект градиентного свечения по краям */
+.app-button .glow-effect {
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(
+        45deg,
+        var(--primary-color),
+        rgba(0, 191, 255, 0.3),
+        var(--primary-color)
+    );
+    z-index: -2;
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.app-button:hover .glow-effect {
+    opacity: 0.5;
 }
 
 /* Темная тема (по умолчанию) */
@@ -23,6 +215,7 @@ body[data-theme="dark"] {
     --container-bg: linear-gradient(to bottom, #08192F, #0A2A4B);
     --container-border: 1px solid #00BFFF;
     --container-shadow: 0 0 20px rgba(0, 191, 255, 0.5);
+    --card-bg: rgba(10, 42, 75, 0.7);
 }
 
 /* Светлая тема */
@@ -41,6 +234,7 @@ body[data-theme="light"] {
     --container-bg: #fff;
     --container-border: 1px solid #007bff;
     --container-shadow: 0 0 20px rgba(0, 123, 255, 0.5);
+    --card-bg: rgba(255, 255, 255, 0.9);
 }
 
 /* Применение переменных */
@@ -57,13 +251,16 @@ body {
     padding: 20px;
     background-color: var(--header-bg);
     border-bottom: 2px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .header__logo {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: bold;
     color: var(--primary-color);
-    text-shadow: 0 0 5px var(--primary-color), 0 0 10px var(--primary-color);
+    text-shadow: 0 0 5px var(--primary-color);
     animation: glow 1.5s infinite alternate;
 }
 
@@ -78,12 +275,14 @@ body {
     font-size: 16px;
     text-decoration: none;
     transition: color 0.3s ease;
+    padding: 8px 12px;
+    border-radius: 5px;
 }
 
 .header__nav-link:hover,
 .header__contacts-link:hover {
+    background-color: var(--button-hover-bg);
     color: var(--primary-color);
-    text-shadow: 0 0 5px var(--primary-color), 0 0 10px var(--primary-color);
 }
 
 .header__contacts {
@@ -96,83 +295,87 @@ body {
     display: flex;
     gap: 20px;
     padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-/* Баннер */
-.banner {
+/* Герой-секция */
+.hero {
     flex: 2;
-    background: var(--container-bg);
-    padding: 20px;
+    background: var(--card-bg);
+    padding: 40px;
     border-radius: 10px;
     border: var(--container-border);
     box-shadow: var(--container-shadow);
     position: relative;
-    overflow: hidden; /* Чтобы изображение не выходило за границы */
+    overflow: hidden;
+    backdrop-filter: blur(5px);
 }
 
-.banner::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('https://fanfishka.ru/uploads/posts/2020-02/1581958302_111.jpg'); /* Ссылка на изображение Матрицы */
-    background-size: cover;
-    background-position: center;
-    opacity: 0.5; /* Полупрозрачность */
-    z-index: 1;
-}
-
-.banner__title {
-    font-size: 32px;
-    margin-bottom: 10px;
+.hero__title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
     color: var(--primary-color);
-    text-shadow: 0 0 5px var(--primary-color), 0 0 10px var(--primary-color);
-    position: relative;
-    z-index: 2; /* Чтобы текст был поверх изображения */
 }
 
-.banner__text {
-    font-size: 16px;
+.hero__subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
     color: var(--text-color);
-    position: relative;
-    z-index: 2; /* Чтобы текст был поверх изображения */
 }
 
-/* Смартфон */
-.smartphone {
+.hero__cta {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: var(--button-bg);
+    border: 2px solid var(--button-border);
+    border-radius: 30px;
+    color: var(--button-text);
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px var(--primary-color);
+}
+
+.hero__cta:hover {
+    background-color: var(--button-hover-bg);
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px var(--primary-color);
+}
+
+/* Блок с телефоном */
+.phone-app {
     width: 340px;
     min-height: 600px;
     background-color: var(--header-bg);
     border-radius: 25px;
     padding: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
     position: relative;
 }
 
-.smartphone::before,
-.smartphone::after {
+.phone-app::before,
+.phone-app::after {
     content: "";
     position: absolute;
     right: -10px;
-    background-color: #444;
+    background-color: var(--border-color);
     border-radius: 5px;
 }
 
-.smartphone::before {
+.phone-app::before {
     top: 100px;
     width: 5px;
     height: 40px;
 }
 
-.smartphone::after {
+.phone-app::after {
     top: 160px;
     width: 5px;
     height: 60px;
 }
 
-.smartphone__screen {
+.phone-app__screen {
     background-color: var(--bg-color);
     border-radius: 10px;
     padding: 20px;
@@ -182,143 +385,473 @@ body {
     gap: 20px;
 }
 
-.smartphone__video {
+.phone-app__demo {
     width: 100%;
-    min-height: 200px;
-    background-image: url(https://i.pinimg.com/originals/6d/12/82/6d128226b004a91418de087443dbbc59.gif);
-    background-repeat: no-repeat;
-    background-size: 110% 95%;
-}
-
-/* Форма поиска */
-.search-form {
-    position: relative;
-    width: 100%;
-}
-
-.search-form__input {
-    width: 100%;
-    height: 40px;
-    padding-left: 15px;
-    border: 2px solid var(--primary-color);
-    border-radius: 20px;
-    font-size: 14px;
-    outline: none;
-    background-color: var(--header-bg);
-    color: var(--text-color);
-    box-shadow: 0 0 5px var(--primary-color), 0 0 10px var(--primary-color);
-    transition: all 0.3s ease;
-}
-
-.search-form__input:focus {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color);
-}
-
-.search-form__button {
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    color: var(--primary-color);
-    transition: all 0.3s ease;
-}
-
-.search-form__button:hover {
-    color: var(--text-color);
-    text-shadow: 0 0 5px var(--primary-color), 0 0 10px var(--primary-color);
-}
-
-/* Кнопки */
-.smartphone__buttons {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    row-gap: 20px;
-    column-gap: 20px;
-}
-
-.smartphone__buttons-link {
-    padding: 8px;
-    background-color: var(--button-bg);
-    border: 2px solid var(--button-border);
+    height: 200px;
+    background-color: var(--card-bg);
     border-radius: 10px;
-    cursor: pointer;
-    font-size: 10px;
-    text-align: center;
-    color: var(--button-text);
-    transition: all 0.3s ease;
-    box-shadow: 0 0 5px var(--primary-color), 0 0 10px var(--primary-color);
-    width: 80px;
-    text-decoration: none;
     display: flex;
     justify-content: center;
     align-items: center;
+    color: var(--primary-color);
+    font-weight: bold;
+    border: 1px dashed var(--border-color);
 }
 
-.smartphone__buttons-link:hover {
-    background-color: var(--button-hover-bg);
-    box-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color);
+/* Кнопки приложения */
+.app-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
 }
 
-.smartphone__buttons-link:active {
-    background-color: var(--primary-color);
-    color: var(--text-color);
-    transform: scale(0.95);
-    box-shadow: 0 0 20px var(--primary-color), 0 0 40px var(--primary-color);
-}
-
-/* Малые блоки */
-.small-blocks {
-    display: flex;
-    gap: 20px;
-    padding: 20px;
-}
-
-.small-blocks__item {
-    flex: 1;
-    background: var(--container-bg);
-    padding: 20px;
+.app-button {
+    padding: 10px;
+    background-color: var(--button-bg);
+    border: 2px solid var(--button-border);
     border-radius: 10px;
+    color: var(--button-text);
+    text-decoration: none;
+    font-size: 12px;
+    text-align: center;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.app-button:hover {
+    background-color: var(--button-hover-bg);
+    transform: scale(1.05);
+}
+
+.app-button i {
+    font-size: 20px;
+}
+
+/* О нас */
+.about {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about__title {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.about__text {
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto 30px;
+}
+
+.team {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.team-member {
+    background: var(--card-bg);
+    border-radius: 10px;
+    padding: 20px;
+    width: 250px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border: var(--container-border);
+}
+
+.team-member__photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 3rem;
+}
+
+.team-member__name {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    color: var(--primary-color);
+}
+
+.team-member__role {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    margin-bottom: 15px;
+}
+
+/* Услуги */
+.services {
+    padding: 40px 20px;
+    background: var(--card-bg);
+    margin: 40px 0;
+    border-top: 2px solid var(--border-color);
+    border-bottom: 2px solid var(--border-color);
+}
+
+.services__title {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 40px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.service-card {
+    background: var(--container-bg);
+    padding: 25px;
+    border-radius: 10px;
+    border: var(--container-border);
+    box-shadow: var(--container-shadow);
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+}
+
+.service-card__icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.service-card__title {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.service-card__description {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.service-card__price {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* Портфолио */
+.portfolio {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.portfolio__title {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 40px;
+}
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.project {
+    background: var(--card-bg);
+    border-radius: 10px;
+    overflow: hidden;
     border: var(--container-border);
     box-shadow: var(--container-shadow);
 }
 
-.small-blocks__title {
-    font-size: 20px;
-    margin-bottom: 10px;
-    color: var(--primary-color);
-    text-shadow: 0 0 5px var(--primary-color), 0 0 10px var(--primary-color);
+.project__image {
+    height: 200px;
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.5rem;
 }
 
-.small-blocks__text {
-    font-size: 14px;
+.project__info {
+    padding: 20px;
+}
+
+.project__title {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.project__description {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.project__link {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: var(--button-bg);
+    border: 2px solid var(--button-border);
+    border-radius: 5px;
+    color: var(--button-text);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.project__link:hover {
+    background-color: var(--button-hover-bg);
+}
+
+/* Контакты */
+.contact {
+    padding: 40px 20px;
+    background: var(--card-bg);
+    margin-top: 40px;
+    border-top: 2px solid var(--border-color);
+}
+
+.contact__title {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 40px;
+}
+
+.contact-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 40px;
+}
+
+.contact-info {
+    flex: 1;
+}
+
+.contact-info__item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.contact-info__icon {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-right: 15px;
+    width: 30px;
+    text-align: center;
+}
+
+.contact-form {
+    flex: 1;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--primary-color);
+}
+
+.form-input,
+.form-textarea {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid var(--border-color);
+    border-radius: 5px;
+    background-color: var(--header-bg);
     color: var(--text-color);
+}
+
+.form-textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+.form-submit {
+    padding: 12px 24px;
+    background-color: var(--button-bg);
+    border: 2px solid var(--button-border);
+    border-radius: 5px;
+    color: var(--button-text);
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.form-submit:hover {
+    background-color: var(--button-hover-bg);
 }
 
 /* Футер */
 .footer {
     background-color: var(--footer-bg);
-    padding: 20px;
+    padding: 30px 20px;
     text-align: center;
     border-top: 2px solid var(--border-color);
 }
 
-.footer__text {
-    font-size: 14px;
+.footer__content {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer__section {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer__title {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.footer__links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer__link {
+    margin-bottom: 10px;
+}
+
+.footer__link a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer__link a:hover {
+    color: var(--primary-color);
+}
+
+.footer__social {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--button-hover-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.footer__copyright {
+    margin-top: 30px;
+    font-size: 0.9rem;
     color: var(--text-color);
 }
 
-/* Анимация */
+/* Переключатель темы */
+.theme-switcher {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--card-bg);
+    padding: 10px;
+    border-radius: 30px;
+    display: flex;
+    gap: 10px;
+    border: var(--container-border);
+    box-shadow: var(--container-shadow);
+    z-index: 100;
+}
+
+.theme-option {
+    display: none;
+}
+
+.theme-label {
+    padding: 5px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.theme-option:checked + .theme-label {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Анимации */
 @keyframes glow {
+    from {
+        text-shadow: 0 0 5px var(--primary-color);
+    }
+    to {
+        text-shadow: 0 0 15px var(--primary-color), 0 0 25px var(--primary-color);
+    }
+}
+
+@keyframes float {
     0% {
-        text-shadow: 0 0 5px var(--secondary-color), 0 0 10px var(--secondary-color), 0 0 20px var(--secondary-color), 0 0 40px var(--secondary-color), 0 0 80px var(--secondary-color);
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
     }
     100% {
-        text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color), 0 0 40px var(--primary-color), 0 0 80px var(--primary-color), 0 0 160px var(--primary-color);
+        transform: translateY(0px);
+    }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .main {
+        flex-direction: column;
+    }
+    
+    .phone-app {
+        width: 100%;
+        min-height: auto;
+    }
+    
+    .contact-container {
+        flex-direction: column;
     }
 }

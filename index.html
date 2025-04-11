@@ -3,100 +3,346 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="./css/reset.css">
-<link rel="stylesheet" href="./css/style.css">
-<title>ИТДОМИК</title>
+<meta name="description" content="ITDOMIK - сообщество начинающих программистов. Создаем проекты, учимся вместе!">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/style.css">
+<title>ITDOM i K | Сообщество разработчиков</title>
 </head>
-<body data-theme="dark"> <!-- Устанавливаем темную тему по умолчанию -->
+<body data-theme="dark">
 <!-- Переключатель темы -->
 <div class="theme-switcher">
-    <label>
-        <input type="radio" name="theme" value="dark" checked> Темная
-    </label>
-    <label>
-        <input type="radio" name="theme" value="light"> Светлая
-    </label>
-</div> 
-    <header class="header">
-    <!-- Логотип -->
-    <div class="header__logo">ITDOMIK</div>
-    <!-- Навигация -->
+    <input type="radio" id="dark-theme" class="theme-option" name="theme" value="dark" checked>
+    <label for="dark-theme" class="theme-label">Тёмная</label>
+    <input type="radio" id="light-theme" class="theme-option" name="theme" value="light">
+    <label for="light-theme" class="theme-label">Светлая</label>
+</div>
+
+<!-- Шапка сайта -->
+<header class="header">
+    <div class="header__logo">ITDOM i K</div>
+    
     <nav class="header__nav">
-        <a class="header__nav-link" href="#">Главная</a>
-        <a class="header__nav-link" href="#">О нас</a>
-        <a class="header__nav-link" href="#">Услуги</a>
-        <a class="header__nav-link" href="#">Форум</a>
-        <a class="header__nav-link" href="#">Личный кабинет</a>
-        </nav>
-        <!-- Контакты -->
-        <div class="header__contacts">
-        <a class="header__contacts-link" href="https://t.me/ваш_телеграм" target="_blank">Telegram</a>
-        <a class="header__contacts-link" href="https://vk.com/ваш_вк" target="_blank">ВК</a>
-        </div>
-    </header>
+        <a class="header__nav-link" href="#home">Главная</a>
+        <a class="header__nav-link" href="#about">О нас</a>
+        <a class="header__nav-link" href="#services">Услуги</a>
+        <a class="header__nav-link" href="#portfolio">Портфолио</a>
+        <a class="header__nav-link" href="#contact">Контакты</a>
+    </nav>
+    
+    <div class="header__contacts">
+        <a class="header__contacts-link" href="https://t.me/itdomik" target="_blank">
+            <i class="fab fa-telegram"></i>
+        </a>
+        <a class="header__contacts-link" href="https://vk.com/itdomik" target="_blank">
+            <i class="fab fa-vk"></i>
+        </a>
+        <a class="header__contacts-link" href="https://github.com/itdomik" target="_blank">
+            <i class="fab fa-github"></i>
+        </a>
+    </div>
+</header>
 
-    <main class="main">
-        <!-- Большой баннер -->
-        <div class="banner">
-        <h1 class="banner__title">Большой баннер</h1>
-        <p class="banner__text">
-        Кролики — это не только ценный мех, но и 3–4 килограмма диетического, легкоусвояемого мяса!!!.
-        </p>
+<!-- Основное содержимое -->
+<main class="main">
+    <!-- Герой-секция -->
+    <section id="home" class="hero">
+        <h1 class="hero__title">Сообщество разработчиков</h1>
+        <p class="hero__subtitle">Мы создаем проекты, учимся и помогаем друг другу и вам расти в IT</p>
+        <a href="#contact" class="hero__cta">Присоединиться</a>
+    </section>
+    
+    <!-- Приложение в телефоне -->
+    <aside class="phone-app">
+        <div class="phone-app__screen">
+            <div class="phone-app__demo">
+                <i class="fas fa-code" style="font-size: 3rem;"></i>
+            </div>
+            
+            <div class="app-buttons">
+                <a href="#projects" class="app-button">
+                    <i class="fas fa-project-diagram"></i>
+                    <span>Проекты</span>
+                </a>
+                <a href="#lessons" class="app-button">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Уроки</span>
+                </a>
+                <a href="#forum" class="app-button">
+                    <i class="fas fa-comments"></i>
+                    <span>Форум</span>
+                </a>
+                <a href="#chat" class="app-button">
+                    <i class="fas fa-comment-dots"></i>
+                    <span>Чат</span>
+                </a>
+                <a href="#tests" class="app-button">
+                    <i class="fas fa-question-circle"></i>
+                    <span>Тесты</span>
+                </a>
+                <a href="#jobs" class="app-button">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Вакансии</span>
+                </a>
+                <a href="#assistant" class="app-button">
+                    <i class="fas fa-robot"></i>
+                    <span>Ассистент</span>
+                </a>
+                <a href="#news" class="app-button">
+                    <i class="fas fa-newspaper"></i>
+                    <span>Новости</span>
+                </a>
+                <a href="#settings" class="app-button">
+                    <i class="fas fa-cog"></i>
+                    <span>Настройки</span>
+                </a>
+                <a href="#ready-code" class="app-button">
+                    <i class="fas fa-code-branch"></i>
+                    <span>Готовый код</span>
+                </a>
+                <a href="#knowledge-base" class="app-button">
+                    <i class="fas fa-book"></i>
+                    <span>База знаний</span>
+                </a>
+                <a href="#english" class="app-button">
+                    <i class="fas fa-language"></i>
+                    <span>Английский</span>
+                </a>
+                <a href="#programmer-tools" class="app-button">
+                    <i class="fas fa-tools"></i>
+                    <span>Инструменты</span>
+                </a>
+            </div>
         </div>
-        <!-- Блок aside -->
-        <aside class="smartphone">
-        <div class="smartphone__screen">
-        <div class="smartphone__video"></div>
-        <!-- Поисковая строка -->
-        <form class="search-form">
-        <input class="search-form__input" type="text" placeholder="Введите запрос" aria-label="Поиск">
-        <button class="search-form__button" type="submit"></button>
-        </form>
-        <!-- Кнопки разделов -->
-        <div class="smartphone__buttons">
-        <a class="smartphone__buttons-link" href="#settings">Настройки</a>
-        <a class="smartphone__buttons-link" href="#news">Новости</a>
-        <a class="smartphone__buttons-link" href="#calculator">Калькулятор</a>
-        <a class="smartphone__buttons-link" href="#courses">Курсы</a>
-        <a class="smartphone__buttons-link" href="#assistant">Ассистент</a>
-        <a class="smartphone__buttons-link" href="#clock">Часы</a>
-        <a class="smartphone__buttons-link" href="#lessons">Уроки</a>
-        <a class="smartphone__buttons-link" href="#tests">Тесты</a>
-        <a class="smartphone__buttons-link" href="#chat">Чат</a>
-        <a class="smartphone__buttons-link" href="#forum">Форум</a>
-        <a class="smartphone__buttons-link" href="#articles">Статьи</a>
-        <a class="smartphone__buttons-link" href="#portfolio">Портфолио</a>
-        <a class="smartphone__buttons-link" href="#development">Разработка</a>
-        <a class="smartphone__buttons-link" href="#itslang">Ит слэнг</a>
-        <a class="smartphone__buttons-link" href="#guide">Справочник</a>
-        <a class="smartphone__buttons-link" href="#ctrl+c">Ctrls+C</a>
-        <a class="smartphone__buttons-link" href="#development">__________</a>
-        <a class="smartphone__buttons-link" href="#development">__________</a>
-        </div>
-        </div>
-        </aside>
-    </main>
+    </aside>
+</main>
 
-    <!-- Три блока поменьше -->
-    <div class="small-blocks">
-        <div class="small-blocks__item">
-        <h3 class="small-blocks__title">Блок 1</h3>
-        <p class="small-blocks__text">Описание блока 1.</p>
+<!-- О нас -->
+<section id="about" class="about">
+    <h2 class="about__title">Кто мы?</h2>
+    <p class="about__text">
+        ITDOM i K — это сообщество начинающих разработчиков, которые объединились для совместного обучения 
+        и создания проектов. Мы верим, что лучший способ научиться программированию — это практика 
+        и обмен знаниями.
+    </p>
+    
+    <div class="team">
+        <div class="team-member">
+            <div class="team-member__photo">
+                <i class="fas fa-user"></i>
+            </div>
+            <h3 class="team-member__name">Алексей</h3>
+            <p class="team-member__role">Frontend разработчик</p>
+            <p>"Люблю создавать красивые интерфейсы"</p>
         </div>
-        <div class="small-blocks__item">
-        <h3 class="small-blocks__title">Блок 2</h3>
-        <p class="small-blocks__text">Описание блока 2.</p>
+        
+        <div class="team-member">
+            <div class="team-member__photo">
+                <i class="fas fa-user"></i>
+            </div>
+            <h3 class="team-member__name">Мария</h3>
+            <p class="team-member__role">Backend разработчик</p>
+            <p>"Увлекаюсь алгоритмами и базами данных"</p>
         </div>
-        <div class="small-blocks__item">
-        <h3 class="small-blocks__title">Блок 3</h3>
-        <p class="small-blocks__text">Описание блока 3.</p>
+        
+        <div class="team-member">
+            <div class="team-member__photo">
+                <i class="fas fa-user"></i>
+            </div>
+            <h3 class="team-member__name">Дмитрий</h3>
+            <p class="team-member__role">Fullstack разработчик</p>
+            <p>"Считаю, что важно понимать весь стек технологий"</p>
         </div>
     </div>
+</section>
 
-    <!-- Футер -->
-    <footer class="footer">
-        <p class="footer__text">&copy; 2025 ITDOMIK. Все права защищены.</p>
-    </footer>
-    <script src="js/script.js"></script>
+<!-- Услуги -->
+<section id="services" class="services">
+    <h2 class="services__title">Что мы предлагаем</h2>
+    
+    <div class="services-grid">
+        <div class="service-card">
+            <div class="service-card__icon">
+                <i class="fas fa-laptop-code"></i>
+            </div>
+            <h3 class="service-card__title">Верстка сайтов</h3>
+            <p class="service-card__description">
+                Создаем адаптивные и современные сайты с использованием HTML5, CSS3 и JavaScript.
+            </p>
+            <p class="service-card__price">От 5 000 руб.</p>
+        </div>
+        
+        <div class="service-card">
+            <div class="service-card__icon">
+                <i class="fas fa-mobile-alt"></i>
+            </div>
+            <h3 class="service-card__title">Лендинги</h3>
+            <p class="service-card__description">
+                Профессиональные одностраничные сайты для вашего бизнеса или проекта.
+            </p>
+            <p class="service-card__price">От 10 000 руб.</p>
+        </div>
+        
+        <div class="service-card">
+            <div class="service-card__icon">
+                <i class="fas fa-code"></i>
+            </div>
+            <h3 class="service-card__title">Веб-приложения</h3>
+            <p class="service-card__description">
+                Разработка простых веб-приложений на React, Vue или чистом JavaScript.
+            </p>
+            <p class="service-card__price">От 15 000 руб.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Портфолио -->
+<section id="portfolio" class="portfolio">
+    <h2 class="portfolio__title">Наши работы</h2>
+    
+    <div class="projects">
+        <div class="project">
+            <div class="project__image" style="background-color: #2c3e50;">
+                <i class="fas fa-shopping-cart" style="font-size: 3rem;"></i>
+            </div>
+            <div class="project__info">
+                <h3 class="project__title">Интернет-магазин</h3>
+                <p class="project__description">
+                    Лендинг для магазина электроники с корзиной товаров.
+                </p>
+                <a href="#" class="project__link">Посмотреть</a>
+            </div>
+        </div>
+        
+        <div class="project">
+            <div class="project__image" style="background-color: #16a085;">
+                <i class="fas fa-utensils" style="font-size: 3rem;"></i>
+            </div>
+            <div class="project__info">
+                <h3 class="project__title">Сайт ресторана</h3>
+                <p class="project__description">
+                    Меню онлайн с возможностью бронирования столиков.
+                </p>
+                <a href="#" class="project__link">Посмотреть</a>
+            </div>
+        </div>
+        
+        <div class="project">
+            <div class="project__image" style="background-color: #c0392b;">
+                <i class="fas fa-running" style="font-size: 3rem;"></i>
+            </div>
+            <div class="project__info">
+                <h3 class="project__title">Фитнес-трекер</h3>
+                <p class="project__description">
+                    Приложение для отслеживания тренировок и питания.
+                </p>
+                <a href="#" class="project__link">Посмотреть</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Контакты -->
+<section id="contact" class="contact">
+    <h2 class="contact__title">Свяжитесь с нами</h2>
+    
+    <div class="contact-container">
+        <div class="contact-info">
+            <div class="contact-info__item">
+                <div class="contact-info__icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <p>г. Москва, ул. Примерная, 123</p>
+            </div>
+            
+            <div class="contact-info__item">
+                <div class="contact-info__icon">
+                    <i class="fas fa-phone"></i>
+                </div>
+                <p>+7 (123) 456-78-90</p>
+            </div>
+            
+            <div class="contact-info__item">
+                <div class="contact-info__icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <p>hello@itdomik.ru</p>
+            </div>
+            
+            <div class="contact-info__item">
+                <div class="contact-info__icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <p>Пн-Пт: 10:00 - 18:00</p>
+            </div>
+        </div>
+        
+        <form class="contact-form">
+            <div class="form-group">
+                <label for="name" class="form-label">Ваше имя</label>
+                <input type="text" id="name" class="form-input" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" id="email" class="form-input" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="message" class="form-label">Сообщение</label>
+                <textarea id="message" class="form-textarea" required></textarea>
+            </div>
+            
+            <button type="submit" class="form-submit">Отправить</button>
+        </form>
+    </div>
+</section>
+
+<!-- Подвал -->
+<footer class="footer">
+    <div class="footer__content">
+        <div class="footer__section">
+            <h3 class="footer__title">ITDOM i K</h3>
+            <p>Сообщество начинающих разработчиков, создающих крутые проекты.</p>
+        </div>
+        
+        <div class="footer__section">
+            <h3 class="footer__title">Навигация</h3>
+            <ul class="footer__links">
+                <li class="footer__link"><a href="#home">Главная</a></li>
+                <li class="footer__link"><a href="#about">О нас</a></li>
+                <li class="footer__link"><a href="#services">Услуги</a></li>
+                <li class="footer__link"><a href="#portfolio">Портфолио</a></li>
+                <li class="footer__link"><a href="#contact">Контакты</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer__section">
+            <h3 class="footer__title">Контакты</h3>
+            <ul class="footer__links">
+                <li class="footer__link"><a href="tel:+71234567890">+7 (123) 456-78-90</a></li>
+                <li class="footer__link"><a href="mailto:hello@itdomik.ru">hello@itdomik.ru</a></li>
+            </ul>
+            
+            <div class="footer__social">
+                <a href="#" class="social-icon">
+                    <i class="fab fa-telegram"></i>
+                </a>
+                <a href="#" class="social-icon">
+                    <i class="fab fa-vk"></i>
+                </a>
+                <a href="#" class="social-icon">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer__copyright">
+        &copy; 2022-2025 ITDOM i K. Все права защищены.
+    </div>
+</footer>
+
+<script src="js/script.js"></script>
 </body>
 </html>
